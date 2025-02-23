@@ -1,30 +1,38 @@
-<div class="login-wrapper">
-    <div></div> <!-- для выравнивания посередине -->
-    <div class="psmodal-wrapper" >
-        <div class="content-wrapper">
-        <div class="logo-wrapper">
-          <div  class="logo-text">X-Mail<span class="logo-color">Backup</span></div>
-        </div>
-            <!-- <mat-form-field  class="bud-form-wrapper">
-            <mat-label>Почта</mat-label>
-            <input matInput [(ngModel)]="user" appLoginAutoFocus/>
-            </mat-form-field>
-    
-            <mat-form-field style="width: 90%; margin: 0 auto;">
-            <mat-label>Пароль</mat-label>
-            <input style="position: relative;" matInput [type]="passwordVisible ? 'text' : 'password'"
-                    (keyup.enter)="onEnter()"
-                    [(ngModel)]="password" />
-            <mat-icon style="position: absolute; right: 0; margin-top: -6px;" (click)="togglePasswordVisibility()" class="toggle-password">
-                {{ passwordVisible ? 'visibility' : 'visibility_off' }}
-            </mat-icon>
-            </mat-form-field>
-    
-            <button class="login-button" style="width: 51%; margin: 0 auto;" mat-raised-button
-                        color="primary"
-                        (click)="login()">Войти
-            </button> -->
+<div class="component-wrap">
+    <div class="login-wrapper">
+        <!-- <div></div> для выравнивания посередине -->
+        <div class="psmodal-wrapper" >
+            <div class="content-wrapper">
+                <div class="logo-wrapper">
+                <h2 class="logo-text">Login</h2>
+                </div>
+                <form [formGroup]="form" (ngSubmit)="login()" >
+                    <mat-form-field appearance="fill" class="bud-form-field-wrapper">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" appLoginAutoFocus  formControlName="email"  />
+                        <mat-icon matPrefix>email</mat-icon>
+                    </mat-form-field>
+        
+                    <mat-form-field appearance="fill"  class="bud-form-field-wrapper">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="{{ hide ? 'password' : 'text'}}" placeholder="Password"  formControlName="password" />
+                        <mat-icon matPrefix>lock</mat-icon>
+                        <mat-icon (click)="hide = !hide" matSuffix>
+                            {{ hide ? 'visibility_off':'visibility'}}
+                        </mat-icon>
+                    </mat-form-field>
+        
+                    <button  [disabled]="!form.valid" class="login-button" mat-raised-button color="primary" type="submit" >
+                        Войти
+                    </button> 
+                    <div class="register-link-wrap">
+                        <span>
+                            Don't have an account?
+                        </span>
+                        <a class="register-link" [routerLink]="['/register']">Register</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <div></div> <!-- для выравнивания посередине -->
 </div>

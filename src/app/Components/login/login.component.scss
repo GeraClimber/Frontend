@@ -1,29 +1,37 @@
+
 .login-wrapper {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: lightblue;
+    width: 100%;
   }
 
 .psmodal-wrapper {
     width: 25%;
-    //background-color: $grey-700;
-    padding: 50px 20px;
+    min-width: 250px;
+    max-width: 400px;
+    background-color: gainsboro;
+    padding: 16px;
     border-radius: 26px;
+    box-sizing: border-box;
+    box-shadow: 1cap;
   }
   
   @media only screen and (min-width : 569px) and (max-width: 912px) {
     .psmodal-wrapper {
       width: 50%;
+      max-width: unset;
     }
   
   }
   
   @media only screen and (min-width : 320px) and (max-width : 568px){
     .psmodal-wrapper {
-      width: 100%;
+      width: 98%;
+      margin: auto;
+      max-width: unset;
     }
   }
 
@@ -33,12 +41,10 @@
     display: inline-flex;
     align-items: center; 
     justify-content: center;
-    margin-bottom: 60px;
   }
 
-  .bud-form-wrapper {
-    width: 90%; 
-    margin: 0 auto;
+  .bud-form-field-wrapper {
+    width: 100%; 
   }
   
   .content-wrapper {
@@ -52,7 +58,20 @@
   }
   
   .login-button {
-    width: 51%;
-    margin: 0 auto;
-    //background-color: $primary-palette-300;
+    display: flex;
+    align-self: center;
+    width: 100%;
+    margin: 16px auto ;
+  }
+
+  .register-link-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .register-link {
+    color: purple;
+    margin-left: 6px;
   }
