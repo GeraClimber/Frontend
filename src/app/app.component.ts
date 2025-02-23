@@ -5,10 +5,11 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./Components/navbar/navbar.component";
 
 @Component({
-    selector: 'app-root',
-    imports: [RouterOutlet, NavbarComponent, CommonModule, MatButtonModule],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-root',
+  imports: [RouterOutlet, NavbarComponent, CommonModule, MatButtonModule],
+  templateUrl: './app.component.html',
+  standalone: true,
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
 

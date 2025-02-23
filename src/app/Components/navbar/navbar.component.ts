@@ -19,6 +19,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     CommonModule,
   ],
+  standalone: true,
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
