@@ -8,6 +8,9 @@
         <div class="flex-container">
             <a mat-button routerLink="/login">Login</a>
             <a mat-button routerLink="/register">Register</a>
+            <button mat-icon-button class="theme-changer" (click)="changeTheme()">
+                <mat-icon>{{theme === 'light' ? 'dark_mode':'light_mode'}}</mat-icon>
+            </button>
         </div>
     </div>
 </mat-toolbar>
