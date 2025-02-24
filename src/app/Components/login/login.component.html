@@ -1,0 +1,37 @@
+<div class="component-wrap">
+    <div class="login-wrapper">
+        <mat-card class="bud-modal-wrapper" >
+            <div class="content-wrapper">
+                <div class="logo-wrapper">
+                <h2 class="logo-text">Login</h2>
+                </div>
+                <form [formGroup]="form" (ngSubmit)="login()" >
+                    <mat-form-field appearance="fill" class="bud-form-field-wrapper">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" appLoginAutoFocus  formControlName="email"  />
+                        <mat-icon matPrefix>email</mat-icon>
+                    </mat-form-field>
+        
+                    <mat-form-field appearance="fill"  class="bud-form-field-wrapper">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="{{ hide ? 'password' : 'text'}}" placeholder="Password"  formControlName="password" />
+                        <mat-icon matPrefix>lock</mat-icon>
+                        <mat-icon (click)="hide = !hide" matSuffix>
+                            {{ hide ? 'visibility_off':'visibility'}}
+                        </mat-icon>
+                    </mat-form-field>
+        
+                    <button  [disabled]="!form.valid" class="login-button" mat-raised-button color="primary" type="submit" >
+                        Войти
+                    </button> 
+                    <div class="register-link-wrap">
+                        <span>
+                            Don't have an account?
+                        </span>
+                        <a class="register-link" [routerLink]="['/register']">Register</a>
+                    </div>
+                </form>
+            </div>
+        </mat-card>
+    </div>
+</div>
