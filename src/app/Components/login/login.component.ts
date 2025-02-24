@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';
 //import { AuthService } from '../../services/auth.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -16,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-login',
   imports: [
     MatInputModule,
+    MatCardModule,
     RouterLink,
     MatSnackBarModule,
     MatIconModule,
