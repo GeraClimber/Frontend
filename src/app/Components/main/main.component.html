@@ -1,12 +1,25 @@
 <div class="component-wrap">
     <mat-card class="bud-mat-card">
-        <mat-card-header>
-            <h2>To start budgeting</h2>
-        </mat-card-header>
-        <mat-card-content class="button-wrapper">
-            <a mat-stroked-button routerLink="/login" routerLinkActive="router-link-active" >Login</a>
-        </mat-card-content>
+       
+            @if(authService.getUserDetail()?.fullName){
+                <mat-card-header>
+                    <mat-card-title>Hello</mat-card-title>
+                    <mat-card-subtitle>{{ authService.getUserDetail()?.fullName }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="button-wrapper">
+                    <button mat-stroked-button (click)="authService.logout()" >Logout</button>
+                </mat-card-content>
+            } @else {
+                <mat-card-header>
+                    <mat-card-title>To start budgeting</mat-card-title>
+                    <mat-card-subtitle></mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="button-wrapper">
+                    <a mat-stroked-button routerLink="/login" routerLinkActive="router-link-active" >Login</a>
+                </mat-card-content>
+            }
+            
+        
+       
     </mat-card>
 </div>
-
-

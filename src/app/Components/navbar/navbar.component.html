@@ -6,8 +6,38 @@
     <div class="spacer"></div>
     <div>
         <div class="flex-container">
-            <a mat-button routerLink="/login">Login</a>
-            <a mat-button routerLink="/register">Register</a>
+            @if(isLoggedIn()){
+                <a *ngIf="authService.getUserDetail() as userDetail" [matMenuTriggerFor]="menu" class="user-info-container">
+                    <div class="user-info-logo">
+                      {{userDetail!.fullName[0].toUpperCase()}}
+                    </div>
+                    <div class="user-data-wr">
+                      <h1 class="user-name-text">
+                        {{userDetail?.fullName}}
+                      </h1>
+                      <p class="user-role-text">
+                        {{userDetail?.roles}}
+                      </p>
+                    </div>
+                  </a>
+                  <mat-menu #menu="matMenu">
+                    <button [routerLink]="['']" mat-menu-item>
+                      <mat-icon>account_circle</mat-icon>
+                      <span>
+                        View Profile
+                      </span>
+                    </button>
+                    <button (click)="logout()" mat-menu-item>
+                      <mat-icon>
+                        logout
+                      </mat-icon>
+                      <span>Logout</span>
+                    </button>
+                  </mat-menu>
+            }@else {
+                <a mat-button routerLink="/login">Login</a>
+                <a mat-button routerLink="/register">Register</a>
+            }
             <button mat-icon-button class="theme-changer" (click)="changeTheme()">
                 <mat-icon>{{theme === 'light' ? 'dark_mode':'light_mode'}}</mat-icon>
             </button>

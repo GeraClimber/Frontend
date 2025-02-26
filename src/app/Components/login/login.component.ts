@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterLink } from '@angular/router';
-//import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../Services/auth.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -29,7 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class LoginComponent {
 
-  //authService = inject(AuthService);
+  authService = inject(AuthService);
   matSnackBar = inject(MatSnackBar);
   router = inject(Router);
   hide = true;
@@ -37,21 +37,21 @@ export class LoginComponent {
   fb = inject(FormBuilder);
 
   login() {
-    // this.authService.login(this.form.value).subscribe({
-    //   next: (response) => {
-    //     this.matSnackBar.open(response.message, 'Close', {
-    //       duration: 5000,
-    //       horizontalPosition: 'center',
-    //     });
-    //     this.router.navigate(['/']);
-    //   },
-    //   error: (error) => {
-    //     this.matSnackBar.open(error.error.message, 'Close', {
-    //       duration: 5000,
-    //       horizontalPosition: 'center',
-    //     });
-    //   },
-    // });
+    this.authService.login(this.form.value).subscribe({
+      next: (response) => {
+        this.matSnackBar.open(response.message, 'Close', {
+          duration: 5000,
+          horizontalPosition: 'center',
+        });
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        this.matSnackBar.open(error.error.message, 'Close', {
+          duration: 5000,
+          horizontalPosition: 'center',
+        });
+      },
+    });
   }
 
   ngOnInit(): void {
