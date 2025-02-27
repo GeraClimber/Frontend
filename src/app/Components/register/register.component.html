@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="component-wrap">
+    <div class="login-register-wrapper">
+        <mat-card class="login-register-card">
+            <div class="login-register-content">
+                <div class="login-register-header">
+                    <h2>Register</h2>
+                </div>
+                <form [formGroup]="form" (ngSubmit)="register()" >
+                    <mat-form-field appearance="fill" class="login-register-form-field">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" appLoginAutoFocus  formControlName="email"  />
+                        <mat-icon matPrefix>email</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill"  class="login-register-form-field">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="{{ hide ? 'password' : 'text'}}" placeholder="Password"  formControlName="password" />
+                        <mat-icon matPrefix>lock</mat-icon>
+                        <mat-icon (click)="hide = !hide" matSuffix>
+                            {{ hide ? 'visibility_off':'visibility'}}
+                        </mat-icon>
+                    </mat-form-field>
+        
+                    <button  [disabled]="!form.valid" class="login-register-button" mat-raised-button color="primary" type="submit" >
+                        Register
+                    </button>
+                    <div class="login-register-link-wrap">
+                        <span>
+                            Already have an account?
+                        </span>
+                        <a class="login-register-link" [routerLink]="['/login']">Login</a>
+                    </div>
+
+                </form>
+            </div>
+        </mat-card>
+    </div>
+</div>
