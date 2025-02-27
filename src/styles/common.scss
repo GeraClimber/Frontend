@@ -1,0 +1,21 @@
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.spacer {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+//calculate size under navbar recommendet to use in every component 
+.component-wrap {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 65px); 
+}
