@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { LoginRequest } from '../Interfaces/login-request';
+import { RegisterRequest } from '../Interfaces/register-request';
 import { Observable, map } from 'rxjs';
 import { AuthResponse } from '../Interfaces/auth-response';
 import { HttpClient } from '@angular/common/http';
@@ -26,6 +27,10 @@ export class AuthService {
           return response;
         })
       );
+  }
+
+  register(data: RegisterRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}account/register`, data);
   }
 
   getUserDetail = () => {
