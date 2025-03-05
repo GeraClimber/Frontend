@@ -12,7 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { Router, RouterLink } from '@angular/router';
-import { AsyncPipe, CommonModule } from '@angular/common';
+//import { AsyncPipe, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../Services/auth.service';
 import { RoleService } from '../../Services/role.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -33,7 +34,7 @@ import { HttpErrorResponse } from '@angular/common/http';
     MatIconModule,
     ReactiveFormsModule,
     MatButtonModule,
-    AsyncPipe,
+    //AsyncPipe,
     CommonModule,
   ],
   templateUrl: './register.component.html',
