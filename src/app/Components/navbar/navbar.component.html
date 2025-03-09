@@ -28,6 +28,18 @@
                       View Profile
                     </span>
                   </button>
+                  <button *ngIf="userDetail?.roles.includes('Admin')" [routerLink]="['users']" mat-menu-item>
+                    <mat-icon>groups</mat-icon>
+                    <span>
+                      Users
+                    </span>
+                  </button>
+                  <button *ngIf="userDetail?.roles.includes('Admin')" [routerLink]="['roles']" mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>
+                      Roles
+                    </span>
+                  </button>
                   <button (click)="logout()" mat-menu-item>
                     <mat-icon>
                       logout
