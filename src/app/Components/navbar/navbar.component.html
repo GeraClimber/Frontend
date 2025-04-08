@@ -1,7 +1,19 @@
 <mat-toolbar>
-    <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
+
+    <button mat-icon-button [matMenuTriggerFor]="budgetMenu">
+      <mat-icon>menu</mat-icon>
     </button>
+    <mat-menu #budgetMenu="matMenu">
+      <button mat-menu-item  (click)="addBudget()">
+        <mat-icon>add</mat-icon>
+        <span>Add budget</span>
+      </button>
+      <button mat-menu-item  (click)="deleteBudget()">
+        <mat-icon>remove</mat-icon>
+        <span>Remove Budget</span>
+      </button>
+    </mat-menu>
+
     <a routerLink="/">Budget</a>
     <div class="spacer"></div>
     <div>
